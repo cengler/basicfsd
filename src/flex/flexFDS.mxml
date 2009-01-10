@@ -3,35 +3,31 @@
 	
 	<mx:Button click="onClick(event)" label="accederé a java!" />
 	
-	<mx:RemoteObject id="HelloFlexFDS" destination="HelloFlexFDS" showBusyCursor="true" fault="faultHandler(event)">
+	<mx:RemoteObject id="HelloFlex" destination="HelloFlexFDS" showBusyCursor="true" fault="faultHandler(event)">
 		<mx:method name="getAnswer" result="getAnswerHandler(event)"/>
 	</mx:RemoteObject>
 	
 	<mx:Script>
 		<![CDATA[
+			import mx.utils.ObjectUtil;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
 			import mx.controls.Alert;
 			
 			private function onClick(e:Event):void
 			{
-				HelloFlexFDS.getAnswer("hello");
-				
+				HelloFlex.getAnswer();
 			}
 			
 			private function getAnswerHandler(e:ResultEvent):void
 			{
-				Alert.show("Esto devolvió: " + e.result);
+				Alert.show("Esto devolvió: " + ObjectUtil.toString(e.result));
 			}
 			
 			public function faultHandler(event:FaultEvent):void
 			{
-				Alert.show(event.fault.faultString,"Error");
-				
-				Alert.show(event.fault.faultDetail,"Error");
+				Alert.show(ObjectUtil.toString(event.fault),"Error");
 			}
-
-
 			
 		]]>
 	</mx:Script>
