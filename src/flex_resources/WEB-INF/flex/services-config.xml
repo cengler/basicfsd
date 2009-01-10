@@ -67,7 +67,7 @@
     <logging>
         <target class="flex.messaging.log.ConsoleTarget" level="Error">
             <properties>
-                <prefix>[BlazeDS] </prefix>
+                <prefix>[Flex Log] </prefix>
                 <includeDate>false</includeDate>
                 <includeTime>false</includeTime>
                 <includeLevel>false</includeLevel>
@@ -80,7 +80,8 @@
             </filters>
         </target>
     </logging>
-	 
+
+
     <system>
         <redeploy>
             <enabled>false</enabled>
@@ -95,7 +96,5 @@
              -->
         </redeploy>
     </system>
-	
-
 
 </services-config>
