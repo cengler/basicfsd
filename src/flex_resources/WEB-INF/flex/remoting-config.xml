@@ -10,5 +10,14 @@
     <default-channels>
         <channel ref="my-amf"/>
     </default-channels>
+	
+	<destination id ="HelloFlexFDS">
+		<properties>
+			<source>
+				flexFDS.HelloFlexFDS
+			</source>
+		</properties>
+	</destination>
+
 
 </service>
