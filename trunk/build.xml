@@ -1,0 +1,30 @@
+<project name="flexFDS" default="all" basedir=".">
+
+	<property name="build.home"    value="${basedir}/build"/>
+	<property name="src.home"      value="${basedir}/src"/>
+	<property name="lib.home"      value="${basedir}/lib"/>
+	<property name="dist.home"     value="${basedir}/dist"/>
+	<property name="docs.home"     value="${basedir}/docs"/>
+	<property name="test.home"     value="${basedir}/test"/>
+	<property name="deploy.home"     value="${basedir}/deploy"/>
+
+<!-- ==================== Clean Target ==================================== -->
+
+  <target name="clean" description="Borra todos los archivos y directorios generados">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+	<delete dir="${docs.home}"/>
+  </target>
+
+<!-- ==================== Prepare Target ================================== -->
+
+  <target name="deploy" description="Prepara el ambiente de desarrollo">
+
+	<mkdir  dir="${deploy.home}"/>
+    
+    <!-- Copy configuration files-->
+    <copy  todir="${deploy.home}">
+      	<fileset dir="${src.home}/flex_resources"/>
+    </copy>
+  
+</project>
