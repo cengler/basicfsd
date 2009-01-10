@@ -26,5 +26,6 @@
     <copy  todir="${deploy.home}">
       	<fileset dir="${src.home}/flex_resources"/>
     </copy>
+  </target>
   
 </project>
