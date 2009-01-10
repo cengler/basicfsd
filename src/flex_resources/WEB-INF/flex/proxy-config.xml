@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <service id="proxy-service" 
     class="flex.messaging.services.HTTPProxyService"
-    messageTypes="flex.messaging.messages.HTTPMessage,flex.messaging.messages.SOAPMessage">
+	messageTypes="flex.messaging.messages.RemotingMessage">
 
     <properties>
         <connection-manager>
@@ -17,7 +17,6 @@
     </adapters>
 
     <default-channels>
-        <channel ref="my-http"/>
         <channel ref="my-amf"/>
     </default-channels>
 
