@@ -22,14 +22,14 @@
 
 	<mkdir  dir="${deploy.home}"/>
     
-    <!-- Copy configuration files-->
+	<!-- copio los archivos de configuracion de flex -->
     <copy  todir="${deploy.home}">
       	<fileset dir="${src.home}/flex_resources" excludes=".*.*"/>
     </copy>
 	
-    <!-- Copy configuration files-->
+	<!-- copio las libririas a donde las espera flex -->
     <copy  todir="${deploy.home}/WEB-INF/lib">
-      	<fileset dir="${lib.home}/java" includes="*.jar"/>
+      	<fileset dir="${lib.home}/java" includes="*.jar" excludes=".*.*"/>
     </copy>
 	
 	
