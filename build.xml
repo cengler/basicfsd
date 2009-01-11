@@ -24,8 +24,15 @@
     
     <!-- Copy configuration files-->
     <copy  todir="${deploy.home}">
-      	<fileset dir="${src.home}/flex_resources"/>
+      	<fileset dir="${src.home}/flex_resources" excludes=".*.*"/>
     </copy>
+	
+    <!-- Copy configuration files-->
+    <copy  todir="${deploy.home}/WEB-INF/lib">
+      	<fileset dir="${lib.home}/java" includes="*.jar"/>
+    </copy>
+	
+	
   </target>
   
 </project>

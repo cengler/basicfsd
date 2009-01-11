@@ -1,5 +1,7 @@
 package flexFDS;
 
+import org.apache.log4j.Logger;
+
 /**
  * 
  * @author Administrador
@@ -7,7 +9,7 @@ package flexFDS;
  */
 public class HelloFlexFDS {
 
-	//private static Logger logger = Logger.getLogger(HelloFlexFDS.class);
+	private static Logger logger = Logger.getLogger(HelloFlexFDS.class);
 	
 	/**
 	 * 
@@ -16,7 +18,7 @@ public class HelloFlexFDS {
 	 */
 	public String getAnswer()
 	{
-		//logger.debug("hola");
+		logger.debug("hola");
 		return "Hola flex";
 	}
 }
