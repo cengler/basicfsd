@@ -16,9 +16,25 @@ public class HelloFlexFDS {
 	 * @param mensaje
 	 * @return un mensaje
 	 */
-	public String getAnswer()
+	public Libro getLibro()
 	{
 		logger.debug("hola");
-		return "Hola flex";
+		Libro l = new Libro();
+		l.setNombre("El señor de los anillos");
+		l.setAutor("Tolkien");
+		
+		return l;
+	}
+	
+	/**
+	 * 
+	 * @param mensaje
+	 * @return un mensaje
+	 */
+	public void setLibro(Libro l)
+	{
+		logger.debug("Nombre: " + l.getNombre());
+		logger.debug("Autor: " + l.getAutor());
+	
 	}
 }
