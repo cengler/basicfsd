@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal">
 	
 	<mx:Button click="onClick(event)" label="accederé a java!" />
 	
+	<mx:Button click="onClick2(event)" label="enviaré a java!" />
+	
 	<mx:RemoteObject id="HelloFlex" destination="HelloFlexFDS" showBusyCursor="true" fault="faultHandler(event)">
-		<mx:method name="getAnswer" result="getAnswerHandler(event)"/>
+		<mx:method name="getLibro" result="getLibroHandler(event)"/>
+		<mx:method name="setLibro" result="setLibroHandler(event)"/>
 	</mx:RemoteObject>
 	
 	<mx:Script>
 		<![CDATA[
+			import flexFDS.Libro;
 			import mx.utils.ObjectUtil;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
@@ -16,12 +20,25 @@
 			
 			private function onClick(e:Event):void
 			{
-				HelloFlex.getAnswer();
+				HelloFlex.getLibro();
 			}
 			
-			private function getAnswerHandler(e:ResultEvent):void
+			private function onClick2(e:Event):void
 			{
-				Alert.show("Esto devolvió: " + ObjectUtil.toString(e.result));
+				var l:Libro = new Libro();
+				l.nombre = "El nombre de la rosa";
+				l.autor = "engler";
+				HelloFlex.setLibro(l);
+			}
+			
+			private function getLibroHandler(e:ResultEvent):void
+			{
+				Alert.show("Esto devolvió: " + Libro(e.result).nombre);
+			}
+			
+			private function setLibroHandler(e:ResultEvent):void
+			{
+				Alert.show("volvi de java");
 			}
 			
 			public function faultHandler(event:FaultEvent):void
