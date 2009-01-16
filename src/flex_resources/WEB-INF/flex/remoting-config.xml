@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <service id="remoting-service" 
-    class="flex.messaging.services.RemotingService">
+    class="flex.messaging.services.RemotingService"
+	messageTypes="flex.messaging.messages.RemotingMessage">
 
     <adapters>
         <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
